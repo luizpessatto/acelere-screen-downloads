@@ -27,6 +27,10 @@ button:disabled { opacity: .5; cursor: progress; }
 .msg { min-height: 20px; margin-top: 12px; font-size: 14px; color: var(--bad); }
 .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-bottom: 20px; }
 .cards div { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 16px; }
+#fin .cards { grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); }
+#fin .cards b { font-size: 24px; white-space: nowrap; }
+.fin-title { margin: 0 0 10px; font-size: 13px; font-weight: 600; color: var(--mute); text-transform: uppercase; letter-spacing: .04em; }
+.fin-note { margin: 0 0 20px; color: var(--mute); font-size: 14px; }
 .cards b { display: block; font-size: 30px; line-height: 1.1; letter-spacing: -.03em; } .cards span { color: var(--mute); font-size: 13px; }
 .bar { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-bottom: 14px; }
 .bar input { flex: 1; min-width: 200px; height: 40px; } .bar select { height: 40px; padding: 0 10px; border: 1px solid var(--line); border-radius: 10px; font: inherit; background: #fff; }
@@ -35,6 +39,7 @@ button:disabled { opacity: .5; cursor: progress; }
 table { width: 100%; border-collapse: collapse; font-size: 14px; }
 th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--line); white-space: nowrap; }
 th { font-size: 12px; font-weight: 600; color: var(--mute); text-transform: uppercase; letter-spacing: .04em; }
+td small { display: block; color: var(--mute); font-size: 12.5px; }
 td.mail { white-space: normal; word-break: break-all; min-width: 200px; }
 .tag { display: inline-block; padding: 2px 9px; border-radius: 999px; font-size: 12.5px; font-weight: 600; background: var(--soft); color: var(--body); }
 .tag.sub { background: #e7f7f0; color: var(--ok); } .tag.due { background: #fdf0dc; color: var(--warn); } .tag.exp { background: #fdeaea; color: var(--bad); } .tag.trial { background: #e8f1fd; color: #1d4ed8; }
@@ -65,6 +70,7 @@ code { font: 13px ui-monospace, Menlo, monospace; }
 
   <section id="panel" hidden>
     <div class="cards" id="cards"></div>
+    <div id="fin"></div>
     <div class="box">
       <div class="bar">
         <input id="q" type="search" placeholder="Buscar por e-mail ou código de indicação">
@@ -80,7 +86,7 @@ code { font: 13px ui-monospace, Menlo, monospace; }
         <small id="count"></small>
       </div>
       <div class="scroll"><table>
-        <thead><tr><th>E-mail</th><th>Criada em</th><th>País</th><th>Situação</th><th>Acesso até</th><th>Indicações</th><th>Código</th><th>Indicada por</th><th></th></tr></thead>
+        <thead><tr><th>E-mail</th><th>Criada em</th><th>País</th><th>Situação</th><th>Plano</th><th>Cobrança</th><th>Acesso até</th><th>Indicações</th><th>Código</th><th>Indicada por</th><th></th></tr></thead>
         <tbody id="rows"></tbody>
       </table></div>
       <div class="msg" id="panelMsg" role="alert"></div>
@@ -93,7 +99,7 @@ code { font: 13px ui-monospace, Menlo, monospace; }
 (function () {
   var API = 'https://xfxfbcqpttrburkqtvdo.supabase.co', KEY = 'sb_publishable_7c0gs5EEVp9R8enScTF3_A_8HRFs9OQ';
   var $ = function (id) { return document.getElementById(id); };
-  var session = null, data = null;
+  var session = null, data = null, fin = null, finErr = '';
   try { session = JSON.parse(sessionStorage.getItem('acelere-admin') || 'null'); } catch (e) {}
 
   function call(path, body, token) {
@@ -112,6 +118,30 @@ code { font: 13px ui-monospace, Menlo, monospace; }
   var esc = function (s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); };
   var day = function (v) { return v ? new Date(v).toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit', year: 'numeric' }) : ''; };
   var LIVE = ['active', 'trialing', 'past_due'];
+  var sec = function (v) { return v ? day(v * 1000) : ''; };
+  var money = function (cents, cur) { return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: (cur || 'brl').toUpperCase() }).format((cents || 0) / 100); };
+
+  // Números do Stripe, um bloco por moeda. O MRR é a receita mensal recorrente: o plano anual entra dividido por 12.
+  function renderFin() {
+    if (!fin) { $('fin').innerHTML = finErr ? '<p class="fin-note">' + esc(finErr) + '</p>' : '<p class="fin-note">Carregando os números do Stripe…</p>'; return; }
+    var curs = Object.keys(fin.totals).sort();
+    $('fin').innerHTML = curs.length ? curs.map(function (c) {
+      var t = fin.totals[c], m = function (v) { return money(v, c); };
+      return '<p class="fin-title">Financeiro em ' + c.toUpperCase() + '</p><div class="cards">' + [
+        [m(t.mrr), 'Receita mensal recorrente (MRR)'], [m(t.mrr * 12), 'Ritmo anual (MRR × 12)'], [m(t.received30), 'Recebido nos últimos 30 dias'],
+        [m(t.forecast30), 'Previsto para os próximos 30 dias'], [t.monthly + ' / ' + t.yearly, 'Assinantes mensais / anuais'], [t.new30, 'Assinaturas novas em 30 dias'],
+        [t.canceled30, 'Cancelamentos em 30 dias'], [t.ending, 'Vão cancelar no fim do período'], [t.past_due, 'Com pagamento pendente']
+      ].map(function (x) { return '<div><b>' + esc(x[0]) + '</b><span>' + x[1] + '</span></div>'; }).join('') + '</div>';
+    }).join('') : '<p class="fin-note">Nenhuma assinatura no Stripe ainda.</p>';
+  }
+  // Plano e próxima cobrança de uma conta, a partir da assinatura dela no Stripe.
+  function billing(u) {
+    var b = fin && fin.accounts[u.id];
+    if (!b) return ['', ''];
+    var plan = (b.plan === 'year' ? 'Anual' : 'Mensal') + '<small>' + money(b.amount, b.currency) + (b.plan === 'year' ? ' por ano' : ' por mês') + '</small>';
+    var when = b.renews ? 'Renova em ' + sec(b.renews) : b.ending ? 'Cancela em ' + sec(b.ends) : b.ends ? 'Encerrada em ' + sec(b.ends) : '';
+    return [plan, when + '<small>Assinou em ' + sec(b.started) + '</small>'];
+  }
 
   // Situação de uma conta, com a mesma lógica do app: assinatura, depois acesso ganho, depois teste.
   function status(u, now) {
@@ -134,12 +164,12 @@ code { font: 13px ui-monospace, Menlo, monospace; }
     });
     $('count').textContent = list.length + ' de ' + data.users.length + ' contas';
     $('rows').innerHTML = list.map(function (x) {
-      var u = x.u;
+      var u = x.u, b = billing(u);
       return '<tr><td class="mail">' + esc(u.email) + '</td><td>' + day(u.created_at) + '</td><td>' + esc(u.country || '') + '</td>' +
-        '<td><span class="tag ' + x.s.k + '">' + esc(x.s.label) + '</span></td><td>' + day(x.s.until) + '</td>' +
+        '<td><span class="tag ' + x.s.k + '">' + esc(x.s.label) + '</span></td><td>' + b[0] + '</td><td>' + b[1] + '</td><td>' + day(x.s.until) + '</td>' +
         '<td>' + (u.referrals ? u.referrals_paid + ' / ' + u.referrals : '') + '</td><td><code>' + esc(u.referral_code) + '</code></td><td>' + esc(u.referred_by || '') + '</td>' +
         '<td><button class="ghost small" data-add="' + esc(u.id) + '" data-mail="' + esc(u.email) + '">+ dias</button></td></tr>';
-    }).join('') || '<tr><td colspan="9">Nenhuma conta com esse filtro.</td></tr>';
+    }).join('') || '<tr><td colspan="11">Nenhuma conta com esse filtro.</td></tr>';
   }
 
   function show(logged) {
@@ -147,7 +177,7 @@ code { font: 13px ui-monospace, Menlo, monospace; }
     if (logged) $('whoMail').textContent = session.email;
   }
   function signOut(msg) {
-    session = null; data = null;
+    session = null; data = null; fin = null; finErr = '';
     try { sessionStorage.removeItem('acelere-admin'); } catch (e) {}
     $('stepMail').hidden = false; $('stepCode').hidden = true; $('code').value = '';
     $('loginMsg').textContent = msg || '';
@@ -155,13 +185,20 @@ code { font: 13px ui-monospace, Menlo, monospace; }
   }
   function load() {
     $('panelMsg').textContent = ''; $('reload').disabled = true;
-    return call('/rest/v1/rpc/admin_overview', {}, session.token).then(function (d) { data = d; show(true); render(); })
+    return call('/rest/v1/rpc/admin_overview', {}, session.token).then(function (d) { data = d; show(true); render(); renderFin(); loadFin(); })
       .catch(function (e) {
         if (e.status === 401) return signOut('Sua sessão venceu. Entre de novo.');
         if (e.status === 403 || e.code === '42501') return signOut('Este e-mail não tem acesso ao painel.');
         if (e.status === 404 || e.code === 'PGRST202') return signOut('O painel ainda não foi ativado no banco (rode supabase/admin.sql).');
         show(true); $('panelMsg').textContent = 'Não foi possível carregar: ' + e.message;
       }).then(function () { $('reload').disabled = false; });
+  }
+
+  // Os números do Stripe chegam depois da lista: se falharem, o resto do painel continua funcionando.
+  function loadFin() {
+    call('/functions/v1/admin-stats', {}, session.token).then(function (d) { fin = d; finErr = ''; })
+      .catch(function (e) { fin = null; finErr = e.status === 404 ? 'Os números do Stripe ainda não foram ativados (falta criar a função admin-stats no Supabase).' : 'Não foi possível ler os números do Stripe agora.'; })
+      .then(function () { if (data) { renderFin(); render(); } });
   }
 
   $('send').onclick = function () {
