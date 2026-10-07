@@ -1,6 +1,6 @@
 {
-  "version": "1.1.23",
+  "version": "1.1.24",
   "minShell": "1.1.0",
-  "bundle": "bundle-1.1.23.json",
+  "bundle": "bundle-1.1.24.json",
   "latestShell": "1.1.0"
 }
