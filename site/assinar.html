@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Acelere Screen</title>
+<style>
+body { margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 24px; box-sizing: border-box; background: #0b0d12; color: #9aa3b2; font: 16px/1.55 system-ui, -apple-system, "Segoe UI", sans-serif; text-align: center; }
+a { color: #11f396; }
+</style>
+</head>
+<body>
+<p id="p">Abrindo o pagamento…</p>
+<script>
+// Link do e-mail "seu teste termina amanhã": leva o código da conta para o servidor, que abre o pagamento no Stripe.
+var t = (location.search.match(/[?&]t=([\w.-]+)/) || [])[1];
+if (t) location.replace('https://xfxfbcqpttrburkqtvdo.supabase.co/functions/v1/billing?t=' + encodeURIComponent(t) + (/[?&]plan=year\b/.test(location.search) ? '&plan=year' : ''));
+else location.replace('/');
+</script>
+<noscript><p>Ative o JavaScript do navegador para abrir o pagamento, ou assine pelo próprio aplicativo, na aba Conta.</p></noscript>
+</body>
+</html>

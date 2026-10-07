@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Acelere Screen — grave, dite e transcreva sem editor e sem digitar</title>
+<meta name="description" content="Um app para Mac e Windows que grava e edita seu vídeo de tela, escreve o que você dita em qualquer programa e transcreve suas reuniões. Tudo no seu computador. 30 dias grátis, sem cartão.">
+<meta property="og:title" content="Acelere Screen — pare de editar, digitar e anotar">
+<meta property="og:description" content="Vídeo pronto, texto ditado e reunião transcrita no mesmo app. 30 dias grátis, sem cartão.">
+<link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/luizpessatto/acelere-screen-downloads@ad6c011b3f/media/email-icon.png">
+<link rel="apple-touch-icon" href="https://cdn.jsdelivr.net/gh/luizpessatto/acelere-screen-downloads@ad6c011b3f/media/email-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@400;700&family=Inter:ital,opsz,wght@0,14..32,400..600;1,14..32,400..600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- Os textos desta página estão em português; app.js troca pelos de i18n.js quando o navegador está em inglês ou espanhol.
+     data-t: texto do elemento · data-tp: placeholder · data-ta: aria-label -->
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#" aria-label="Acelere Screen">
+      <svg viewBox="100 100 824 824" width="30" height="30" aria-hidden="true"><defs><linearGradient id="marca1" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#11f396"/><stop offset="1" stop-color="#1199f6"/></linearGradient></defs><rect x="100" y="100" width="824" height="824" rx="185" fill="#12151c"/><g transform="translate(232 222) scale(5.6)" fill="url(#marca1)"><path d="M50 10 92 90H71L50 50 29 90H8Z"/><path d="M50 64 63.65 90H55L50 80.5 45 90H36.35Z"/></g></svg>
+      <b>Acelere</b><span>Screen</span>
+    </a>
+    <nav aria-label="Seções" data-ta="navAria">
+      <a href="#funcoes" data-t="nav1">Funções</a>
+      <a href="#como" data-t="nav2">Como funciona</a>
+      <a href="#perguntas" data-t="nav3">Perguntas</a>
+      <a href="#baixar" data-t="nav4">Preço</a>
+    </nav>
+    <a class="pill small" href="#baixar" data-t="cta">Testar grátis</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <p class="mono" data-t="heroTag">Para Mac e Windows · tudo no seu computador</p>
+      <h1 data-t="h1">Pare de editar, digitar e anotar. <span>Só grave e fale.</span></h1>
+      <p class="sub" data-t="sub">O Acelere Screen grava e edita seu vídeo de tela, escreve o que você dita em qualquer programa e transcreve suas reuniões. Baixe agora e termine o primeiro vídeo ainda hoje.</p>
+      <div class="actions">
+        <a class="pill" href="#baixar" id="heroCta"><span data-os-label>Testar 30 dias grátis</span> <span aria-hidden="true">→</span></a>
+        <a class="pill line" href="#demo-bloco" data-t="heroAlt">Ver o app em 1 minuto</a>
+      </div>
+      <p class="note mono" data-t="heroNote">30 dias grátis · sem cartão · cancele quando quiser</p>
+    </div>
+    <ul class="strip mono" aria-hidden="true">
+      <li data-t="s1">Vídeos</li><li>VoiceText</li><li data-t="s3">Reuniões</li><li data-t="s4">Prints</li>
+    </ul>
+  </section>
+
+  <section class="demo" id="demo-bloco">
+    <div class="wrap">
+      <div class="frame">
+        <video id="demo" src="https://cdn.jsdelivr.net/gh/luizpessatto/acelere-screen-downloads@f429fd6279/media/demo.mp4" poster="https://cdn.jsdelivr.net/gh/luizpessatto/acelere-screen-downloads@f429fd6279/media/demo-poster.jpg" controls muted loop autoplay playsinline preload="metadata" aria-label="Demonstração do Acelere Screen em um minuto" data-ta="demoAria"></video>
+      </div>
+      <p data-t="demoNote">Demonstração de 1 minuto, gravada e editada no próprio app. A tela e o apresentador são ilustrativos.</p>
+    </div>
+  </section>
+
+  <section class="block dark band">
+    <div class="wrap">
+      <div class="head">
+        <h2 data-t="bandH2">Um app que <span>faz o trabalho de quatro</span></h2>
+        <p data-t="bandP">Gravador de tela, editor de vídeo, ditado por voz e transcritor de reunião costumam ser quatro programas e mais de uma mensalidade. <b>Aqui é um só.</b></p>
+      </div>
+      <ul class="stats">
+        <li><b data-t="st1b">4 em 1</b><span data-t="st1">Funções no mesmo app</span></li>
+        <li><b data-t="st2b">30 dias</b><span data-t="st2">Grátis, sem cartão</span></li>
+        <li><b>0</b><span data-t="st3">Gravações enviadas para a nuvem</span></li>
+        <li><b data-t="priceValue">R$ 29,90</b><span data-t="st4">Por mês, sem fidelidade</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap why">
+      <h2 data-t="whyH2">O que você <span>deixa de fazer</span></h2>
+      <ul>
+        <li data-t="why1"><b>Abrir um editor só para cortar um erro.</b> Você corta na hora, no mesmo app, e exporta.</li>
+        <li data-t="why2"><b>Digitar mensagem, e-mail e proposta.</b> Você fala e o texto aparece onde o cursor está.</li>
+        <li data-t="why3"><b>Anotar a reunião enquanto tenta prestar atenção.</b> A conversa sai escrita, com o que você disse e o que os outros disseram.</li>
+        <li data-t="why4"><b>Mandar seu vídeo e sua voz para o servidor de alguém.</b> Tudo roda e fica no seu computador.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="block funcs" id="funcoes" style="padding-top:0">
+    <div class="wrap">
+      <h2 data-t="funH2">As quatro <span>funções</span></h2>
+      <ol>
+        <li><i>#1</i><h3 data-t="fun1h">Vídeos</h3><p data-t="fun1p">Grave a tela e a câmera, corte os erros, dê zoom no detalhe e exporte em MP4. Horizontal ou vertical, pronto para postar.</p></li>
+        <li><i>#2</i><h3>VoiceText</h3><p data-t="fun2p">Aperte um atalho e fale. O texto aparece no WhatsApp, no e-mail ou em qualquer programa, já sem "hã" e "hum".</p></li>
+        <li><i>#3</i><h3 data-t="fun3h">Reuniões</h3><p data-t="fun3p">Clique em começar antes da chamada no Meet ou no Zoom. No fim, a conversa está escrita e separada entre você e os participantes.</p></li>
+        <li><i>#4</i><h3 data-t="fun4h">Prints</h3><p data-t="fun4p">Um atalho, selecione a área, marque o que importa e cole onde quiser.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="block dark round how" id="como">
+    <div class="wrap">
+      <h2 data-t="howH2">Funcionando <span>ainda hoje</span></h2>
+      <ol class="steps">
+        <li><p class="mono"><span>01</span><span data-t="how1k">Baixar</span></p><h3 data-t="how1h">Libere o download</h3><p data-t="how1p">Preencha nome e telefone e o instalador começa a baixar na hora.</p></li>
+        <li><p class="mono"><span>02</span><span data-t="how2k">Entrar</span></p><h3 data-t="how2h">Entre com seu e-mail</h3><p data-t="how2p">Você recebe um código e pronto. Sem senha para criar e sem cartão para cadastrar.</p></li>
+        <li><p class="mono"><span>03</span><span data-t="how3k">Usar</span></p><h3 data-t="how3h">Grave, dite ou transcreva</h3><p data-t="how3p">O primeiro vídeo sai em minutos. No primeiro uso do VoiceText, o app baixa o modelo de voz (cerca de 600 MB) uma única vez.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap safe">
+      <h2 data-t="safeH2">Você <span>não arrisca nada</span></h2>
+      <ol>
+        <li data-t="safe1">30 dias com tudo liberado.<small>Vídeos, VoiceText, Reuniões e Prints, sem limite de uso.</small></li>
+        <li data-t="safe2">Sem cartão no cadastro.<small>Se não servir, é só não assinar. Nada é cobrado e não há o que cancelar.</small></li>
+        <li data-t="safe3">Assinou e mudou de ideia? Cancele sozinho.<small>Pelo próprio app, sem falar com ninguém. Seus vídeos e textos continuam no seu computador.</small></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="block" id="perguntas" style="padding-top:0">
+    <div class="wrap faq">
+      <h2 data-t="faqH2">Antes de <span>baixar</span></h2>
+      <div>
+        <details><summary data-t="q1">Preciso colocar cartão para testar?</summary><p data-t="a1">Não. Você entra só com seu e-mail e usa tudo por 30 dias. A cobrança só existe se você decidir assinar.</p></details>
+        <details><summary data-t="q2">Meus vídeos e minhas reuniões vão para a internet?</summary><p data-t="a2">Não. A gravação, a edição e a transcrição acontecem no seu computador. O app usa a internet só para a sua conta e para baixar o modelo de voz.</p></details>
+        <details><summary data-t="q3">Funciona no meu computador?</summary><p data-t="a3">Em Mac com chip Apple ou Intel (macOS 12 ou mais novo) e em Windows 10 ou 11. O VoiceText e a transcrição de reuniões são mais rápidos em computadores recentes.</p></details>
+        <details><summary data-t="q4">O sistema mostrou um aviso de segurança na instalação. É normal?</summary><p data-t="a4">É. O app ainda não tem o selo pago da Apple e da Microsoft, então o sistema pede uma confirmação na primeira vez. O passo a passo aparece logo depois do download.</p></details>
+        <details><summary data-t="q5">Quanto custa depois dos 30 dias?</summary><p data-t="a5">R$ 29,90 por mês, sem fidelidade, ou R$ 299 por ano (você paga 10 meses e usa 12). Você cancela quando quiser, pelo próprio app.</p></details>
+        <details><summary data-t="q6">Como funciona a indicação?</summary><p data-t="a6">Quando alguém entra com o seu código e assina, você ganha 1 mês grátis.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="get" id="baixar">
+    <div class="wrap get-grid">
+      <div>
+        <h2 data-t="getH2">Pronto pra <span>terminar o primeiro vídeo hoje?</span></h2>
+        <p class="lead" id="osLead">Disponível para macOS e Windows.</p>
+        <div class="os-row">
+          <span class="os" data-os="mac"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.4 12.6c0-2.2 1.800-3.200 1.900-3.300-1-1.500-2.600-1.700-3.200-1.700-1.400-.1-2.700.8-3.300.8-.7 0-1.700-.8-2.900-.8-1.500 0-2.800.9-3.600 2.200-1.500 2.700-.4 6.600 1.100 8.700.7 1 1.600 2.200 2.700 2.200s1.500-.7 2.800-.7 1.700.7 2.900.7 2-1.100 2.700-2.100c.8-1.200 1.200-2.400 1.200-2.400s-2.300-.9-2.300-3.600zM14.200 6.200c.6-.7 1-1.700.9-2.700-.9 0-1.900.6-2.600 1.300-.6.700-1.100 1.700-.9 2.700 1 .1 2-.5 2.600-1.300z"/></svg>macOS</span>
+          <span class="os" data-os="win"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5.300 10.800 4.200v7.300H3zM11.800 4.100 21 2.800v8.700h-9.200zM3 12.500h7.800v7.300L3 18.700zM11.800 12.500H21v8.700l-9.200-1.300z"/></svg>Windows</span>
+        </div>
+        <!-- Preço: um valor só, que acompanha o idioma (real em português, dólar nos demais); a cobrança real segue o país de quem assina. -->
+        <div class="price">
+          <b><span data-t="priceValue">R$ 29,90</span> <small data-t="priceUnit">por mês</small></b>
+          <span class="year" data-t="priceYear">ou R$ 299 por ano: 2 meses grátis</span>
+          <span data-t="priceAfter">Só depois dos 30 dias grátis, e só se você quiser continuar.</span>
+          <p data-t="priceNote">Uma assinatura no lugar de quatro programas. Sem fidelidade: cancele quando quiser.</p>
+        </div>
+        <p class="refer" data-t="refNote">Indique um amigo pelo app: quando ele assinar, você ganha 1 mês grátis.</p>
+      </div>
+
+      <div class="card">
+        <p class="ref-box" id="refBox" hidden data-t="refBox">Você foi indicado por um amigo. Ao entrar no app, informe o código <b id="refCode"></b>: quando você assinar, seu amigo ganha 1 mês grátis.</p>
+        <form id="leadForm" novalidate>
+          <h3 data-t="formH3">Libere seu download</h3>
+          <p class="hint" data-t="formHint">Dois campos e o download começa na hora. No app, você entra só com seu e-mail, sem senha e sem cartão.</p>
+          <div class="field">
+            <label for="fNome" data-t="lNome">Nome</label>
+            <input id="fNome" name="nome" autocomplete="name" placeholder="Seu nome" data-tp="pNome" required>
+            <span class="err" id="eNome" role="alert"></span>
+          </div>
+          <div class="field">
+            <label for="fTel" data-t="lTel">Telefone</label>
+            <input id="fTel" name="telefone" type="tel" autocomplete="tel" placeholder="(11) 91234-5678" data-tp="pTel" required>
+            <span class="err" id="eTel" role="alert"></span>
+          </div>
+          <label class="check"><input type="checkbox" id="fSame" checked> <span data-t="same">Meu WhatsApp é este mesmo número</span></label>
+          <div class="field" id="wField" hidden>
+            <label for="fWpp">WhatsApp</label>
+            <input id="fWpp" name="whatsapp" type="tel" placeholder="(11) 91234-5678" data-tp="pTel">
+            <span class="err" id="eWpp" role="alert"></span>
+          </div>
+          <button class="pill" type="submit" id="fGo"><span data-os-label>Liberar download</span></button>
+          <p class="legal" data-t="legal">Usamos seus dados só para falar com você sobre a Acelere. <a href="https://aceleretech.com/privacidade.html" target="_blank" rel="noopener">Privacidade</a></p>
+        </form>
+
+        <div id="done" hidden>
+          <div class="done-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.500 4.500L19 7.500"/></svg></div>
+          <h3 id="doneTitle" tabindex="-1" data-t="doneTitle">Download liberado</h3>
+          <p class="hint" id="doneHint"></p>
+          <div id="dlButtons"></div>
+          <details id="helpMac" hidden>
+            <summary data-t="macSum">Como abrir no Mac pela primeira vez</summary>
+            <ol>
+              <li data-t="mac1">Abra o arquivo baixado e arraste o Acelere Screen para Aplicativos.</li>
+              <li data-t="mac2">Abra o app. Se o macOS disser que não pode verificar o desenvolvedor, vá em Ajustes do Sistema › Privacidade e Segurança e clique em "Abrir Mesmo Assim".</li>
+              <li data-t="mac3">Na primeira gravação, permita câmera, microfone e gravação de tela.</li>
+            </ol>
+          </details>
+          <details id="helpWin" hidden>
+            <summary data-t="winSum">Como instalar no Windows</summary>
+            <ol>
+              <li data-t="win1">Abra o instalador baixado.</li>
+              <li data-t="win2">Se aparecer "O Windows protegeu o computador", clique em "Mais informações" e depois em "Executar assim mesmo".</li>
+              <li data-t="win3">Siga o assistente. O atalho fica na área de trabalho e no menu Iniciar.</li>
+            </ol>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="brand"><svg viewBox="100 100 824 824" width="30" height="30" aria-hidden="true"><defs><linearGradient id="marca2" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#11f396"/><stop offset="1" stop-color="#1199f6"/></linearGradient></defs><rect x="100" y="100" width="824" height="824" rx="185" fill="#12151c"/><g transform="translate(232 222) scale(5.6)" fill="url(#marca2)"><path d="M50 10 92 90H71L50 50 29 90H8Z"/><path d="M50 64 63.65 90H55L50 80.5 45 90H36.35Z"/></g></svg><b>Acelere</b><span>Screen</span></div>
+      <p>© 2026 Acelere Tech · CNPJ 32.710.437/0001-05 · Acelere Screen <span id="ver"></span></p>
+    </div>
+    <nav aria-label="Rodapé">
+      <a href="#funcoes" data-t="nav1">Funções</a>
+      <a href="#baixar" data-t="nav4">Preço</a>
+      <a href="https://aceleretech.com/privacidade.html" target="_blank" rel="noopener" data-t="navPriv">Privacidade</a>
+      <a href="https://aceleretech.com" target="_blank" rel="noopener">Acelere Tech</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="config.js"></script>
+<script src="i18n.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Acelere Screen</title>
+<style>
+body { margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 24px; box-sizing: border-box; background: #0b0d12; color: #f3f5f8; font: 16px/1.55 system-ui, -apple-system, "Segoe UI", sans-serif; }
+main { max-width: 440px; padding: 32px; border: 1px solid #252b38; border-radius: 20px; background: #131720; text-align: center; }
+h1 { margin: 0 0 10px; font-size: 24px; letter-spacing: -.02em; }
+p { margin: 0; color: #9aa3b2; }
+b { color: #f3f5f8; }
+</style>
+</head>
+<body>
+<main>
+  <h1 id="t">Assinatura confirmada</h1>
+  <p id="p">Pode fechar esta página e voltar ao <b>Acelere Screen</b>. O app libera sozinho em alguns segundos.</p>
+</main>
+<script>
+// Textos nos três idiomas; a página acompanha o idioma do navegador.
+var TEXTS = {
+  pt: { ok: ['Assinatura confirmada', 'Pode fechar esta página e voltar ao <b>Acelere Screen</b>. O app libera sozinho em alguns segundos.'],
+        cancel: ['Pagamento não concluído', 'Nada foi cobrado. Para tentar de novo, volte ao <b>Acelere Screen</b> e clique em Assinar.'],
+        portal: ['Tudo certo', 'Pode fechar esta página e voltar ao <b>Acelere Screen</b>.'] },
+  en: { ok: ['Subscription confirmed', 'You can close this page and go back to <b>Acelere Screen</b>. The app unlocks by itself in a few seconds.'],
+        cancel: ['Payment not completed', 'Nothing was charged. To try again, go back to <b>Acelere Screen</b> and click Subscribe.'],
+        portal: ['All set', 'You can close this page and go back to <b>Acelere Screen</b>.'] },
+  es: { ok: ['Suscripción confirmada', 'Puedes cerrar esta página y volver a <b>Acelere Screen</b>. La app se desbloquea sola en unos segundos.'],
+        cancel: ['Pago no completado', 'No se cobró nada. Para intentarlo de nuevo, vuelve a <b>Acelere Screen</b> y haz clic en Suscribirme.'],
+        portal: ['Todo listo', 'Puedes cerrar esta página y volver a <b>Acelere Screen</b>.'] }
+};
+var code = (navigator.language || 'pt').toLowerCase(), lang = code.indexOf('pt') === 0 ? 'pt' : code.indexOf('es') === 0 ? 'es' : 'en';
+var q = location.search, kind = q.indexOf('cancelado') > -1 ? 'cancel' : q.indexOf('portal') > -1 ? 'portal' : 'ok';
+document.documentElement.lang = lang === 'pt' ? 'pt-BR' : lang;
+document.getElementById('t').textContent = TEXTS[lang][kind][0];
+document.getElementById('p').innerHTML = TEXTS[lang][kind][1];
+</script>
+</body>
+</html>
