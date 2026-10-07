@@ -1,0 +1,23 @@
+{
+  "name": "acelere-screen",
+  "productName": "Acelere Screen",
+  "version": "1.1.27",
+  "description": "Grave a tela e a câmera, dite textos e transcreva reuniões.",
+  "author": "Acelere Tech",
+  "build": {
+    "appId": "tech.acelere.screen",
+    "productName": "Acelere Screen",
+    "electronVersion": "39.8.10",
+    "directories": { "output": "dist", "buildResources": "build" },
+    "win": { "icon": "build/icon.ico", "signAndEditExecutable": false },
+    "appx": {
+      "identityName": "AcelereScreen.AcelereScreen",
+      "publisher": "CN=57244FBF-08DF-4439-8E50-F0157770A06B",
+      "publisherDisplayName": "Acelere Screen",
+      "applicationId": "AcelereScreen",
+      "displayName": "Acelere Screen",
+      "languages": ["pt-BR", "en-US", "es"],
+      "artifactName": "Acelere-Screen-Loja-${version}.${ext}"
+    }
+  }
+}

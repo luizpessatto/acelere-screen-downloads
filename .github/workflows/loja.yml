@@ -1,0 +1,33 @@
+# Monta o pacote da Microsoft Store (.appx) a partir do instalador do Windows publicado na release.
+# Roda só quando acionado à mão (Actions › Pacote da Microsoft Store › Run workflow).
+name: Pacote da Microsoft Store
+on: workflow_dispatch
+permissions:
+  contents: read
+jobs:
+  appx:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Baixar e abrir o instalador publicado
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release download v1.1.15 -p Acelere-Screen-Setup.exe -R ${{ github.repository }}
+          7z x Acelere-Screen-Setup.exe -oinst -y | Out-Null
+          7z x 'inst/$PLUGINSDIR/app-64.7z' -oloja/app -y | Out-Null
+          Get-ChildItem loja/app | Select-Object Name, Length
+      - name: Montar o pacote
+        shell: pwsh
+        working-directory: loja
+        run: |
+          npm install --no-save electron-builder@26.15.3
+          npx electron-builder --win appx --x64 --prepackaged app
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pacote-loja
+          path: loja/dist/*.appx
