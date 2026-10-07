@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Painel · Acelere Screen</title>
+<link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/luizpessatto/acelere-screen-downloads@ad6c011b3f/media/email-icon.png">
+<style>
+:root { --ink: #12151c; --body: #374151; --mute: #6b7280; --line: #e6e8ec; --soft: #f4f5f7; --ok: #0a7f5a; --warn: #b45309; --bad: #c81e1e; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--soft); color: var(--ink); font: 15px/1.5 Inter, system-ui, -apple-system, "Segoe UI", sans-serif; }
+[hidden] { display: none !important; }
+header { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 24px; background: #fff; border-bottom: 1px solid var(--line); }
+header b { font-size: 17px; } header span { color: var(--mute); }
+main { max-width: 1240px; margin: 0 auto; padding: 24px; }
+.box { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 24px; }
+#login { max-width: 400px; margin: 10vh auto 0; }
+h1 { margin: 0 0 6px; font-size: 22px; } p { margin: 0 0 16px; color: var(--body); }
+label { display: block; margin: 0 0 6px; font-size: 13px; color: var(--mute); }
+input { width: 100%; height: 46px; padding: 0 14px; border: 1px solid var(--line); border-radius: 10px; font: inherit; }
+button { height: 44px; padding: 0 18px; border: 1px solid var(--ink); border-radius: 10px; background: var(--ink); color: #fff; font: 600 14px/1 inherit; cursor: pointer; }
+button.ghost { background: #fff; color: var(--ink); border-color: var(--line); }
+button.small { height: 32px; padding: 0 10px; font-size: 13px; }
+button:disabled { opacity: .5; cursor: progress; }
+#login button { width: 100%; margin-top: 14px; }
+.msg { min-height: 20px; margin-top: 12px; font-size: 14px; color: var(--bad); }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-bottom: 20px; }
+.cards div { background: #fff; border: 1px solid var(--line); border-radius: 14px; padding: 16px; }
+.cards b { display: block; font-size: 30px; line-height: 1.1; letter-spacing: -.03em; } .cards span { color: var(--mute); font-size: 13px; }
+.bar { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-bottom: 14px; }
+.bar input { flex: 1; min-width: 200px; height: 40px; } .bar select { height: 40px; padding: 0 10px; border: 1px solid var(--line); border-radius: 10px; font: inherit; background: #fff; }
+.bar small { color: var(--mute); }
+.scroll { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--line); white-space: nowrap; }
+th { font-size: 12px; font-weight: 600; color: var(--mute); text-transform: uppercase; letter-spacing: .04em; }
+td.mail { white-space: normal; word-break: break-all; min-width: 200px; }
+.tag { display: inline-block; padding: 2px 9px; border-radius: 999px; font-size: 12.5px; font-weight: 600; background: var(--soft); color: var(--body); }
+.tag.sub { background: #e7f7f0; color: var(--ok); } .tag.due { background: #fdf0dc; color: var(--warn); } .tag.exp { background: #fdeaea; color: var(--bad); } .tag.trial { background: #e8f1fd; color: #1d4ed8; }
+code { font: 13px ui-monospace, Menlo, monospace; }
+</style>
+</head>
+<body>
+<header>
+  <div><b>Acelere</b> <span>Screen · painel</span></div>
+  <div id="who" hidden><span id="whoMail"></span> <button class="ghost small" id="out">Sair</button></div>
+</header>
+<main>
+  <section class="box" id="login">
+    <h1>Entrar no painel</h1>
+    <p>Só e-mails autorizados. Você recebe um código, como no app.</p>
+    <div id="stepMail">
+      <label for="mail">E-mail</label>
+      <input id="mail" type="email" autocomplete="email" placeholder="voce@exemplo.com">
+      <button id="send">Enviar código</button>
+    </div>
+    <div id="stepCode" hidden>
+      <label for="code">Código recebido por e-mail</label>
+      <input id="code" inputmode="numeric" autocomplete="one-time-code" placeholder="00000000">
+      <button id="enter">Entrar</button>
+    </div>
+    <div class="msg" id="loginMsg" role="alert"></div>
+  </section>
+
+  <section id="panel" hidden>
+    <div class="cards" id="cards"></div>
+    <div class="box">
+      <div class="bar">
+        <input id="q" type="search" placeholder="Buscar por e-mail ou código de indicação">
+        <select id="f" aria-label="Situação">
+          <option value="">Todas as situações</option>
+          <option value="sub">Assinantes</option>
+          <option value="due">Pagamento pendente</option>
+          <option value="trial">Em teste</option>
+          <option value="bonus">Acesso ganho</option>
+          <option value="exp">Expiradas</option>
+        </select>
+        <button class="ghost" id="reload">Atualizar</button>
+        <small id="count"></small>
+      </div>
+      <div class="scroll"><table>
+        <thead><tr><th>E-mail</th><th>Criada em</th><th>País</th><th>Situação</th><th>Acesso até</th><th>Indicações</th><th>Código</th><th>Indicada por</th><th></th></tr></thead>
+        <tbody id="rows"></tbody>
+      </table></div>
+      <div class="msg" id="panelMsg" role="alert"></div>
+    </div>
+  </section>
+</main>
+<script>
+// Painel do administrador. O login é o mesmo código por e-mail do app; os dados vêm de funções do banco que só
+// respondem a e-mails da tabela "admins" (ver supabase/admin.sql). Esta página, sozinha, não dá acesso a nada.
+(function () {
+  var API = 'https://xfxfbcqpttrburkqtvdo.supabase.co', KEY = 'sb_publishable_7c0gs5EEVp9R8enScTF3_A_8HRFs9OQ';
+  var $ = function (id) { return document.getElementById(id); };
+  var session = null, data = null;
+  try { session = JSON.parse(sessionStorage.getItem('acelere-admin') || 'null'); } catch (e) {}
+
+  function call(path, body, token) {
+    return fetch(API + path, {
+      method: 'POST',
+      headers: { apikey: KEY, Authorization: 'Bearer ' + (token || KEY), 'Content-Type': 'application/json' },
+      body: JSON.stringify(body || {})
+    }).then(function (r) {
+      return r.text().then(function (t) {
+        var j = null; try { j = t ? JSON.parse(t) : null; } catch (e) {}
+        if (!r.ok) { var err = new Error((j && (j.message || j.msg || j.error_description)) || ('erro ' + r.status)); err.status = r.status; err.code = j && j.code; throw err; }
+        return j;
+      });
+    });
+  }
+  var esc = function (s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); };
+  var day = function (v) { return v ? new Date(v).toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit', year: 'numeric' }) : ''; };
+  var LIVE = ['active', 'trialing', 'past_due'];
+
+  // Situação de uma conta, com a mesma lógica do app: assinatura, depois acesso ganho, depois teste.
+  function status(u, now) {
+    var t = +new Date(u.trial_ends_at), a = u.access_until ? +new Date(u.access_until) : 0, p = u.paid_until ? +new Date(u.paid_until) : 0;
+    var until = Math.max(t, a, p), left = Math.ceil((until - now) / 86400e3);
+    if (LIVE.indexOf(u.subscription_status) >= 0) return u.subscription_status === 'past_due' ? { k: 'due', label: 'Pagamento pendente', until: until } : { k: 'sub', label: 'Assinante', until: until };
+    if (until <= now) return { k: 'exp', label: 'Expirada', until: until };
+    if (a > now && a >= t) return { k: 'bonus', label: 'Acesso ganho · ' + left + ' d', until: until };
+    return { k: 'trial', label: 'Em teste · ' + left + ' d', until: until };
+  }
+
+  function render() {
+    var t = data.totals, now = +new Date(data.now);
+    $('cards').innerHTML = [[t.accounts, 'Contas'], [t.subscribers, 'Assinantes'], [t.trial, 'Em teste'], [t.expired, 'Expiradas'], [t.past_due, 'Pagamento pendente'], [t.new7, 'Novas em 7 dias'], [t.new30, 'Novas em 30 dias'], [t.referrals_paid + ' / ' + t.referrals, 'Indicações pagas / feitas']]
+      .map(function (c) { return '<div><b>' + esc(c[0]) + '</b><span>' + c[1] + '</span></div>'; }).join('');
+    var q = $('q').value.trim().toLowerCase(), f = $('f').value;
+    var list = data.users.map(function (u) { return { u: u, s: status(u, now) }; }).filter(function (x) {
+      if (f && x.s.k !== f) return false;
+      return !q || (x.u.email || '').toLowerCase().indexOf(q) >= 0 || (x.u.referral_code || '').toLowerCase().indexOf(q) >= 0;
+    });
+    $('count').textContent = list.length + ' de ' + data.users.length + ' contas';
+    $('rows').innerHTML = list.map(function (x) {
+      var u = x.u;
+      return '<tr><td class="mail">' + esc(u.email) + '</td><td>' + day(u.created_at) + '</td><td>' + esc(u.country || '') + '</td>' +
+        '<td><span class="tag ' + x.s.k + '">' + esc(x.s.label) + '</span></td><td>' + day(x.s.until) + '</td>' +
+        '<td>' + (u.referrals ? u.referrals_paid + ' / ' + u.referrals : '') + '</td><td><code>' + esc(u.referral_code) + '</code></td><td>' + esc(u.referred_by || '') + '</td>' +
+        '<td><button class="ghost small" data-add="' + esc(u.id) + '" data-mail="' + esc(u.email) + '">+ dias</button></td></tr>';
+    }).join('') || '<tr><td colspan="9">Nenhuma conta com esse filtro.</td></tr>';
+  }
+
+  function show(logged) {
+    $('login').hidden = logged; $('panel').hidden = !logged; $('who').hidden = !logged;
+    if (logged) $('whoMail').textContent = session.email;
+  }
+  function signOut(msg) {
+    session = null; data = null;
+    try { sessionStorage.removeItem('acelere-admin'); } catch (e) {}
+    $('stepMail').hidden = false; $('stepCode').hidden = true; $('code').value = '';
+    $('loginMsg').textContent = msg || '';
+    show(false);
+  }
+  function load() {
+    $('panelMsg').textContent = ''; $('reload').disabled = true;
+    return call('/rest/v1/rpc/admin_overview', {}, session.token).then(function (d) { data = d; show(true); render(); })
+      .catch(function (e) {
+        if (e.status === 401) return signOut('Sua sessão venceu. Entre de novo.');
+        if (e.status === 403 || e.code === '42501') return signOut('Este e-mail não tem acesso ao painel.');
+        if (e.status === 404 || e.code === 'PGRST202') return signOut('O painel ainda não foi ativado no banco (rode supabase/admin.sql).');
+        show(true); $('panelMsg').textContent = 'Não foi possível carregar: ' + e.message;
+      }).then(function () { $('reload').disabled = false; });
+  }
+
+  $('send').onclick = function () {
+    var mail = $('mail').value.trim().toLowerCase();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(mail)) { $('loginMsg').textContent = 'Digite um e-mail válido.'; return; }
+    $('send').disabled = true; $('loginMsg').textContent = '';
+    // create_user: false — o painel nunca cria conta; só entra quem já tem conta no app.
+    call('/auth/v1/otp', { email: mail, create_user: false }).then(function () {
+      $('stepMail').hidden = true; $('stepCode').hidden = false; $('code').focus();
+    }).catch(function (e) { $('loginMsg').textContent = e.status === 429 ? 'Muitas tentativas. Espere um minuto.' : 'Não foi possível enviar o código para este e-mail.'; })
+      .then(function () { $('send').disabled = false; });
+  };
+  $('enter').onclick = function () {
+    var mail = $('mail').value.trim().toLowerCase(), code = $('code').value.replace(/\D/g, '');
+    if (code.length < 6) { $('loginMsg').textContent = 'Digite o código que chegou no e-mail.'; return; }
+    $('enter').disabled = true; $('loginMsg').textContent = '';
+    call('/auth/v1/verify', { type: 'email', email: mail, token: code }).then(function (s) {
+      session = { token: s.access_token, email: mail };
+      try { sessionStorage.setItem('acelere-admin', JSON.stringify(session)); } catch (e) {}
+      return load();
+    }).catch(function () { $('loginMsg').textContent = 'Código incorreto ou vencido.'; })
+      .then(function () { $('enter').disabled = false; });
+  };
+  $('mail').onkeydown = function (e) { if (e.key === 'Enter') $('send').click(); };
+  $('code').onkeydown = function (e) { if (e.key === 'Enter') $('enter').click(); };
+  $('out').onclick = function () { signOut(''); };
+  $('reload').onclick = load;
+  $('q').oninput = function () { if (data) render(); };
+  $('f').onchange = function () { if (data) render(); };
+  $('rows').onclick = function (e) {
+    var b = e.target.closest('[data-add]');
+    if (!b) return;
+    var n = parseInt(prompt('Quantos dias de teste dar para ' + b.dataset.mail + '?', '30'), 10);
+    if (!(n >= 1 && n <= 3650)) return;
+    if (!confirm('Dar ' + n + ' dias de teste para ' + b.dataset.mail + '?')) return;
+    b.disabled = true;
+    call('/rest/v1/rpc/admin_add_days', { p_user: b.dataset.add, p_days: n }, session.token).then(load)
+      .catch(function (err) { b.disabled = false; $('panelMsg').textContent = 'Não foi possível dar os dias: ' + err.message; });
+  };
+
+  if (session && session.token) load(); else show(false);
+})();
+</script>
+</body>
+</html>
