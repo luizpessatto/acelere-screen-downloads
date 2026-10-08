@@ -13,5 +13,5 @@ window.ACELERE_SCREEN = {
     macIntel: { url: 'https://github.com/luizpessatto/acelere-screen-downloads/releases/latest/download/Acelere-Screen-Intel.dmg', file: 'Acelere-Screen-Intel.dmg', size: '120 MB' },
     win: { url: 'https://github.com/luizpessatto/acelere-screen-downloads/releases/latest/download/Acelere-Screen-Setup.exe', file: 'Acelere-Screen-Setup.exe', size: '86 MB' }
   },
-  version: '1.1.34'
+  version: '1.1.39'
 };
