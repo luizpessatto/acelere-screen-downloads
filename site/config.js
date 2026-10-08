@@ -10,8 +10,8 @@ window.ACELERE_SCREEN = {
   // "latest" aponta sempre para a release mais recente, desde que os nomes dos arquivos se mantenham.
   downloads: {
     mac: { url: 'https://github.com/luizpessatto/acelere-screen-downloads/releases/latest/download/Acelere-Screen.dmg', file: 'Acelere-Screen.dmg', size: '111 MB' },
-    macIntel: { url: 'https://github.com/luizpessatto/acelere-screen-downloads/releases/latest/download/Acelere-Screen-Intel.dmg', file: 'Acelere-Screen-Intel.dmg', size: '134 MB' },
+    macIntel: { url: 'https://github.com/luizpessatto/acelere-screen-downloads/releases/latest/download/Acelere-Screen-Intel.dmg', file: 'Acelere-Screen-Intel.dmg', size: '120 MB' },
     win: { url: 'https://github.com/luizpessatto/acelere-screen-downloads/releases/latest/download/Acelere-Screen-Setup.exe', file: 'Acelere-Screen-Setup.exe', size: '86 MB' }
   },
-  version: '1.1.27'
+  version: '1.1.34'
 };
