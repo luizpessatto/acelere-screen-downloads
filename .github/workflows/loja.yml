@@ -17,7 +17,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release download v1.1.60 -p Acelere-Screen-Setup.exe -R luizpessatto/acelere-screen-instaladores
+          gh release download v1.1.63 -p Acelere-Screen-Setup.exe -R luizpessatto/acelere-screen-instaladores
           7z x Acelere-Screen-Setup.exe -oinst -y | Out-Null
           7z x 'inst/$PLUGINSDIR/app-64.7z' -oloja/app -y | Out-Null
           Get-ChildItem loja/app | Select-Object Name, Length
