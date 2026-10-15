@@ -1,5 +1,10 @@
 [
  {
+  "version": "1.1.80",
+  "date": "2026-10-15",
+  "notes": "Vitalício à vista em reais ou dólares, com preço confirmado no app e lote inicial compartilhado."
+ },
+ {
   "version": "1.1.79",
   "date": "2026-10-15",
   "notes": "Novas contas escolhem uma preferência sem cartão e testam por 15 dias. Migração do mensal para anual na próxima renovação, com confirmação de preço e data. Planos e prazos das contas existentes preservados."
