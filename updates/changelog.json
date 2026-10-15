@@ -1,5 +1,10 @@
 [
  {
+  "version": "1.1.77",
+  "date": "2026-10-15",
+  "notes": "Novo plano vitalício: pagamento único de R$697 nas primeiras 50 licenças e R$997 depois. Mensal e anual continuam disponíveis."
+ },
+ {
   "version": "1.1.76",
   "date": "2026-10-15",
   "notes": "Corrige a inserção do VoiceText no campo selecionado no Mac, incluindo computadores Intel, e melhora a confirmação da colagem para evitar perda ou duplicação do ditado."
