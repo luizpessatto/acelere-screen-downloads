@@ -1,5 +1,10 @@
 [
  {
+  "version": "1.1.79",
+  "date": "2026-10-15",
+  "notes": "Novas contas escolhem uma preferência sem cartão e testam por 15 dias. Migração do mensal para anual na próxima renovação, com confirmação de preço e data. Planos e prazos das contas existentes preservados."
+ },
+ {
   "version": "1.1.78",
   "date": "2026-10-15",
   "notes": "Corrige falhas no início do áudio exportado em MP4, evita sons de prévia no arquivo e preserva estéreo, qualidade e ajustes de voz."
