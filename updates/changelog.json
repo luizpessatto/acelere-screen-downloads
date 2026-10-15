@@ -1,0 +1,372 @@
+[
+ {
+  "version": "1.1.76",
+  "date": "2026-10-15",
+  "notes": "Corrige a inserção do VoiceText no campo selecionado no Mac, incluindo computadores Intel, e melhora a confirmação da colagem para evitar perda ou duplicação do ditado."
+ },
+ {
+  "version": "1.1.75",
+  "date": "2026-10-15",
+  "notes": "Melhora a clareza da voz no VoiceText e na transcrição de reuniões, com tratamento de ruído grave e captura preparada para fala. Português passa a ser o idioma inicial, preservando idiomas já escolhidos. A gravação original de vídeo mantém a qualidade estéreo."
+ },
+ {
+  "version": "1.1.74",
+  "date": "2026-10-15",
+  "notes": "Corrige o aviso de novo instalador: atualizações compatíveis continuam chegando pelo próprio app. O download de outro instalador só é solicitado quando a atualização realmente exige uma base mais recente."
+ },
+ {
+  "version": "1.1.73",
+  "date": "2026-10-15",
+  "notes": "Cores de texto, fundo e gradiente personalizáveis por camada. Arraste títulos e destaques diretamente na prévia para posicioná-los. Melhorias no aviso do atalho do VoiceText e correção de repetições em ditados longos."
+ },
+ {
+  "version": "1.1.71",
+  "date": "2026-10-14",
+  "notes": "Perfil de voz com dropdown no padrão do app e menu de opções acessível. Atalhos do editor visíveis nos botões: S para dividir, Espaço para reproduzir/pausar, Z para zoom e A para sugerir zoom pelos cliques. Melhorias na navegação pelo teclado e proteção durante digitação e exportação."
+ },
+ {
+  "version": "1.1.70",
+  "date": "2026-10-14",
+  "notes": "Novo editor com ferramentas laterais, painéis de cena, cursor, câmera, áudio, legendas e camadas. Fundos com imagem, vídeo, cor ou gradiente; efeitos de clique e linha do tempo com ampliação e sugestão de zoom. Controles visuais padronizados. Conta agora tem a seção Atualizações, com histórico de novidades e atualização do app."
+ },
+ {
+  "version": "1.1.69",
+  "date": "2026-10-14",
+  "notes": "Gravação com áudio de alta qualidade e preservação do estéreo. Na edição, ajuste graves, médios, agudos, ganho e compressão, com perfis de voz e medidor de nível."
+ },
+ {
+  "version": "1.1.67",
+  "date": "2026-10-14",
+  "notes": "Atalhos de resumo, insights, entregáveis e checklist em cada reunião. Conexão simplificada com Claude. Edição automática com avisos claros sobre as opções disponíveis. Correções no ditado e no aprendizado do dicionário. Lembrete do VoiceText na primeira semana. Remoção da transcrição de mensagens de áudio."
+ },
+ {
+  "version": "1.1.64",
+  "date": "2026-10-13",
+  "notes": "Corrige créditos de cupons e estornos de indicação; melhora as mensagens de crédito na assinatura. Nova gravação começa com todas as fontes desligadas."
+ },
+ {
+  "version": "1.1.63",
+  "date": "2026-10-10",
+  "notes": "Apresentação inicial: mostra o que o app faz, ajuda a liberar as permissões e deixa testar o ditado e o print na hora. Dá para rever em Conta › Sobre"
+ },
+ {
+  "version": "1.1.62",
+  "date": "2026-10-10",
+  "notes": "Feedback: a pessoa é avisada quando a mensagem dela é marcada como resolvida. Painel do administrador disponível dentro do app para a conta de administrador"
+ },
+ {
+  "version": "1.1.61",
+  "date": "2026-10-10",
+  "notes": "Conta: criar conta com nome, telefone, e-mail e senha (sem código por e-mail), aba Conta reorganizada em seções, envio de feedback com fotos e resposta da equipe, avisos de novidade (bolinha e selo Novo), cupom e indicação num campo só"
+ },
+ {
+  "version": "1.1.60",
+  "date": "2026-10-09",
+  "notes": "VoiceText: corrigiu uma palavra logo depois de ditar? Ela entra sozinha no dicionário, com um aviso no ícone. A opção de escrever enquanto fala passou a se chamar \"Transcrição em tempo real\""
+ },
+ {
+  "version": "1.1.59",
+  "date": "2026-10-09",
+  "notes": "Editor: enquadramento livre (tirar toda a margem, zoom e arrastar o vídeo em qualquer formato) e duas novas faixas de áudio: música de fundo e efeitos sonoros"
+ },
+ {
+  "version": "1.1.58",
+  "date": "2026-10-09",
+  "notes": "Ícone flutuante: clicar de novo fecha o menu (antes ele reabria na hora)"
+ },
+ {
+  "version": "1.1.57",
+  "date": "2026-10-09",
+  "notes": "Windows: quando o Claude não está registrado para abrir a extensão, o app mostra a pasta com o arquivo e explica como instalar pelo Claude"
+ },
+ {
+  "version": "1.1.56",
+  "date": "2026-10-09",
+  "notes": "VoiceText: \"Escrever enquanto eu falo\" passa a vir ligado (dá para desligar em Opções)"
+ },
+ {
+  "version": "1.1.55",
+  "date": "2026-10-09",
+  "notes": "Editor: velocidade do vídeo (até 3×, mantendo o tom da voz), também pelo Claude. VoiceText: opção de escrever no campo enquanto você fala. Reuniões: conectar ao Claude no Windows mesmo quando o app não o encontra sozinho"
+ },
+ {
+  "version": "1.1.54",
+  "date": "2026-10-09",
+  "notes": "Aba \"Claude\" do editor mais compacta: registro em uma linha por alteração e pedidos prontos em uma visão separada, sem rolagem"
+ },
+ {
+  "version": "1.1.53",
+  "date": "2026-10-09",
+  "notes": "Editar vídeo com o Claude: o seu Claude Desktop corta, legenda, põe títulos e zoom no vídeo aberto; a nova aba \"Claude\" do editor mostra cada alteração, com desfazer por item e pedidos prontos"
+ },
+ {
+  "version": "1.1.52",
+  "date": "2026-10-09",
+  "notes": "Fundo do vídeo com degradê personalizado: escolha duas cores no botão \"+\""
+ },
+ {
+  "version": "1.1.51",
+  "date": "2026-10-09",
+  "notes": "Editor: títulos e destaques animados na linha do tempo, exportação em MP4 cerca de duas vezes mais rápida e painel lateral em abas. Reuniões: o Claude passa a procurar as suas reuniões sozinho quando você fala de uma, e o app reconhece o Claude Desktop no Windows"
+ },
+ {
+  "version": "1.1.49",
+  "date": "2026-10-09",
+  "notes": "Reuniões mais leves: durante a chamada o app guarda só os trechos com fala e transcreve aos poucos; o restante é transcrito ao parar, sem perder trechos"
+ },
+ {
+  "version": "1.1.48",
+  "date": "2026-10-09",
+  "notes": "O ícone mostra um carregando enquanto o áudio é processado; no Windows, o ícone flutuante abre o menu ao clicar e o ícone ao lado do relógio abre o app"
+ },
+ {
+  "version": "1.1.47",
+  "date": "2026-10-09",
+  "notes": "VoiceText: entende quando você se corrige no meio da frase (\"às duas, não, melhor às três\"), tira \"tipo\" e \"né\", e ganha a Revisão por IA opcional, que roda no próprio computador"
+ },
+ {
+  "version": "1.1.46",
+  "date": "2026-10-09",
+  "notes": "VoiceText entende melhor em lugares com barulho (parágrafos e cortes); campo de cupom na aba Conta; nome e telefone pedidos uma vez ao criar a conta"
+ },
+ {
+  "version": "1.1.45",
+  "date": "2026-10-09",
+  "notes": "Corrigir uma fala de reunião também ensina a palavra ao dicionário"
+ },
+ {
+  "version": "1.1.44",
+  "date": "2026-10-08",
+  "notes": "Corrigir um texto transcrito ensina a palavra ao dicionário (VoiceText e transcrição de vídeo); o dicionário passa a valer na transcrição de vídeos"
+ },
+ {
+  "version": "1.1.43",
+  "date": "2026-10-08",
+  "notes": "Gravar o som do computador, transcrição em duas vozes (você e o outro lado) e volume separado da voz e do som do computador"
+ },
+ {
+  "version": "1.1.42",
+  "date": "2026-10-08",
+  "notes": "Transcrever vídeo (com minuto de cada trecho, .txt e .srt) e importar vídeo do computador"
+ },
+ {
+  "version": "1.1.41",
+  "date": "2026-10-08",
+  "notes": "Botão Buscar atualizações na aba Conta, atualização aplicada sozinha quando o app está parado e versão em uso informada ao painel"
+ },
+ {
+  "version": "1.1.40",
+  "date": "2026-10-08",
+  "notes": "O app passa a buscar as atualizações em acelerescreen.com"
+ },
+ {
+  "version": "1.1.39",
+  "date": "2026-10-08",
+  "notes": "Botão Remover cortes e desfazer para as duas operações"
+ },
+ {
+  "version": "1.1.38",
+  "date": "2026-10-07",
+  "notes": "Edição automática corta frases repetidas e troca o layout sozinha"
+ },
+ {
+  "version": "1.1.37",
+  "date": "2026-10-07",
+  "notes": "Modelos de legenda, meu padrão, poucas palavras por vez e destaque da palavra falada"
+ },
+ {
+  "version": "1.1.36",
+  "date": "2026-10-07",
+  "notes": "Legendas automáticas no editor"
+ },
+ {
+  "version": "1.1.35",
+  "date": "2026-10-07",
+  "notes": "Aba Conta abre na hora e confere o servidor em segundo plano"
+ },
+ {
+  "version": "1.1.34",
+  "date": "2026-10-07",
+  "notes": "Imagem sem congelar nos cortes, cortes automáticos sem pedacinhos, desfazer salvo no vídeo"
+ },
+ {
+  "version": "1.1.33",
+  "date": "2026-10-07",
+  "notes": "Cortes sem travar, cliques registrados na gravação e zoom automático"
+ },
+ {
+  "version": "1.1.32",
+  "date": "2026-10-07",
+  "notes": "Edição automática (corta pausas) e ícones da conexão com o Claude embutidos"
+ },
+ {
+  "version": "1.1.31",
+  "date": "2026-10-07",
+  "notes": "Reuniões em cartões, nome e renomear, extensão para o Claude"
+ },
+ {
+  "version": "1.1.30",
+  "date": "2026-10-07",
+  "notes": "Aplica a versão nova sozinho quando o app está parado em segundo plano"
+ },
+ {
+  "version": "1.1.29",
+  "date": "2026-10-07",
+  "notes": "Indicação dá o mês grátis só a quem indicou"
+ },
+ {
+  "version": "1.1.28",
+  "date": "2026-10-07",
+  "notes": "Teste grátis de 30 dias para todos"
+ },
+ {
+  "version": "1.1.27",
+  "date": "2026-10-07",
+  "notes": "Depois de baixar o vídeo, mostra onde ele foi salvo e abre a pasta"
+ },
+ {
+  "version": "1.1.26",
+  "date": "2026-10-07",
+  "notes": "Miniatura do vídeo vertical aparece inteira na biblioteca"
+ },
+ {
+  "version": "1.1.25",
+  "date": "2026-10-07",
+  "notes": "Formato e margem na gravação, VoiceText mais limpo, plano anual"
+ },
+ {
+  "version": "1.1.24",
+  "date": "2026-10-07",
+  "notes": "Endereço novo, acelerescreen.com"
+ },
+ {
+  "version": "1.1.23",
+  "date": "2026-10-07",
+  "notes": "Aviso de reunião no ícone flutuante e código de login com 8 dígitos"
+ },
+ {
+  "version": "1.1.22",
+  "date": "2026-10-07",
+  "notes": "Indicação com 30 dias de teste e meses grátis sem acumular"
+ },
+ {
+  "version": "1.1.21",
+  "date": "2026-10-07",
+  "notes": "A conta é conferida a cada meia hora e ao focar a janela"
+ },
+ {
+  "version": "1.1.20",
+  "date": "2026-10-06",
+  "notes": "Preço único na aba Conta e país informado para os e-mails"
+ },
+ {
+  "version": "1.1.19",
+  "date": "2026-10-06",
+  "notes": "O app informa o idioma da conta para os e-mails"
+ },
+ {
+  "version": "1.1.18",
+  "date": "2026-10-06",
+  "notes": "Gravação salva em pedaços (com recuperação), editor mais leve e exportação com a janela escondida"
+ },
+ {
+  "version": "1.1.17",
+  "date": "2026-10-06",
+  "notes": "Reunião mais leve, com aviso de atraso e fila com limite"
+ },
+ {
+  "version": "1.1.16",
+  "date": "2026-10-06",
+  "notes": "Estabilidade da reunião e do ditado, gravação segura dos dados e cópia única do app"
+ },
+ {
+  "version": "1.1.14",
+  "date": "2026-10-06",
+  "notes": "Transcrição de reuniões e app em português, inglês e espanhol"
+ },
+ {
+  "version": "1.1.13",
+  "date": "2026-10-06",
+  "notes": "Login com Google desligado por enquanto"
+ },
+ {
+  "version": "1.1.12",
+  "date": "2026-10-06",
+  "notes": "Entrar com Google"
+ },
+ {
+  "version": "1.1.11",
+  "date": "2026-10-06",
+  "notes": "Assinatura pelo Stripe e indicação que dá 1 mês para os dois"
+ },
+ {
+  "version": "1.1.10",
+  "date": "2026-10-06",
+  "notes": "Contas com 14 dias grátis e indicações (1 mês por amigo indicado"
+ },
+ {
+  "version": "1.1.9",
+  "date": "2026-10-06",
+  "notes": "Ícone flutuante novo, print mais rápido e correção dos atalhos com Command"
+ },
+ {
+  "version": "1.1.8",
+  "date": "2026-10-06",
+  "notes": "Chaves de ligar/desligar nas cores da marca e fim do modelo Leve"
+ },
+ {
+  "version": "1.1.7",
+  "date": "2026-10-06",
+  "notes": "Menu do topo fixo ao rolar"
+ },
+ {
+  "version": "1.1.6",
+  "date": "2026-10-06",
+  "notes": "Aba VoiceText reorganizada, sem aba Ajustes"
+ },
+ {
+  "version": "1.1.5",
+  "date": "2026-10-06",
+  "notes": "Ícone flutuante acompanha a tela onde o mouse está"
+ },
+ {
+  "version": "1.1.4",
+  "date": "2026-10-06",
+  "notes": "Atalho do print acima da galeria"
+ },
+ {
+  "version": "1.1.3",
+  "date": "2026-10-06",
+  "notes": "Abas (Vídeos, VoiceText, Prints, Ajustes) e galeria de prints"
+ },
+ {
+  "version": "1.1.2",
+  "date": "2026-10-06",
+  "notes": "Print com marcações, atalhos configuráveis, sons e parágrafos no VoiceText, tela maior no vertical"
+ },
+ {
+  "version": "1.1.1",
+  "date": "2026-10-06",
+  "notes": "O ditado por voz passa a se chamar VoiceText"
+ },
+ {
+  "version": "1.1.0",
+  "date": "2026-10-06",
+  "notes": "Ditado por voz; exige instalador novo"
+ },
+ {
+  "version": "1.0.3",
+  "date": "2026-10-05",
+  "notes": "O app sempre busca a versão mais recente do canal (sem cache)"
+ },
+ {
+  "version": "1.0.2",
+  "date": "2026-10-05",
+  "notes": "Modelos verticais (tela dividida, só câmera, só tela) com transições"
+ },
+ {
+  "version": "1.0.1",
+  "date": "2026-10-05",
+  "notes": "Primeira versão do canal de atualizações"
+ }
+]
