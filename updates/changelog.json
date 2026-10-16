@@ -1,5 +1,10 @@
 [
  {
+  "version": "1.1.85",
+  "date": "2026-10-16",
+  "notes": "VoiceText mais rápido em ditados longos, com reconhecimento durante a fala e entrega do texto completo ao encerrar. Melhorias no uso do dicionário, nas pausas e na continuidade ao navegar entre campos."
+ },
+ {
   "version": "1.1.80",
   "date": "2026-10-15",
   "notes": "Vitalício à vista em reais ou dólares, com preço confirmado no app e lote inicial compartilhado."
