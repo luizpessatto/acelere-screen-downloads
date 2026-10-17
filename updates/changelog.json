@@ -1,5 +1,10 @@
 [
  {
+  "version": "1.1.88",
+  "date": "2026-10-16",
+  "notes": "Recorte livre no editor: selecione só o slide, a janela ou a região da tela que deve aparecer. Ajuste pelas bordas ou com medidas em pixels. O recorte fica salvo no projeto e vale na prévia e na exportação, mantendo câmera, legendas e áudio separados."
+ },
+ {
   "version": "1.1.85",
   "date": "2026-10-16",
   "notes": "VoiceText mais rápido em ditados longos, com reconhecimento durante a fala e entrega do texto completo ao encerrar. Melhorias no uso do dicionário, nas pausas e na continuidade ao navegar entre campos."
