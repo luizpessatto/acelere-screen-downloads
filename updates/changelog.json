@@ -1,5 +1,10 @@
 [
  {
+  "version": "1.1.89",
+  "date": "2026-10-19",
+  "notes": "Zoom, recorte e posição também em vídeos só de câmera. Ajuste o vídeo acima da prévia, arraste para reposicionar e restaure o enquadramento quando quiser. Os arquivos originais e o áudio são preservados."
+ },
+ {
   "version": "1.1.88",
   "date": "2026-10-16",
   "notes": "Recorte livre no editor: selecione só o slide, a janela ou a região da tela que deve aparecer. Ajuste pelas bordas ou com medidas em pixels. O recorte fica salvo no projeto e vale na prévia e na exportação, mantendo câmera, legendas e áudio separados."
