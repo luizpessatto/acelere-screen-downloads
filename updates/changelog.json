@@ -1,5 +1,10 @@
 [
  {
+  "version": "1.1.90",
+  "date": "2026-10-20",
+  "notes": "Corrige a sincronização de áudio e vídeo na exportação, inclusive com cortes no início e no final."
+ },
+ {
   "version": "1.1.89",
   "date": "2026-10-19",
   "notes": "Zoom, recorte e posição também em vídeos só de câmera. Ajuste o vídeo acima da prévia, arraste para reposicionar e restaure o enquadramento quando quiser. Os arquivos originais e o áudio são preservados."
